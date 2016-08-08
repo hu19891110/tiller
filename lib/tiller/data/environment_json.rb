@@ -39,7 +39,11 @@ class EnvironmentJsonDataSource < Tiller::DataSource
 
   def values(template_name)
     if @json_version < 2
-      return Hash.new
+      if (Tiller::config['remap_globals'])
+        global_values
+      else
+        return Hash.new
+      end
     end
 
     if @json_structure.has_key?(template_name)

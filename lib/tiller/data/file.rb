@@ -40,6 +40,9 @@ class FileDataSource < Tiller::DataSource
   end
 
   def values(template_name)
+    if (Tiller::config['remap_globals'])
+      global_values
+    end
     @config_hash.key?(template_name) ? @config_hash[template_name]['config'] : {}
   end
 

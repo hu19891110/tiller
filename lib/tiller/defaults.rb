@@ -12,6 +12,8 @@ module Tiller
     'api_enable'          => false,
     'md5sum'              => false,
     'md5sum_noexec'       => false,
+    'warn_on_merge'       => true,
+    'remap_globals'       => false,
     'api_port'            => 6275
   }
 end

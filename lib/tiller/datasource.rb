@@ -28,7 +28,11 @@ module Tiller
     # We should always return a hash; if we have no data for the given
     # template, just return an empty hash.
     def values(_template_name)
-      {}
+      if (Tiller::config['remap_globals'])
+        global_values
+      else
+        {}
+      end
     end
 
     # This should provide a hash similar to this example :

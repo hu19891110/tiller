@@ -15,8 +15,10 @@ end
 
 # Warn if values are being merged
 def warn_merge(key, old, new, type, source)
-  puts "Warning, merging duplicate #{type} values."
-  puts "#{key} => '#{old}' being replaced by : '#{new}' from #{source}"
+  if (Tiller::config['warn_on_merge'])
+    puts "Warning, merging duplicate #{type} values."
+    puts "#{key} => '#{old}' being replaced by : '#{new}' from #{source}"
+  end
   new
 end
 
